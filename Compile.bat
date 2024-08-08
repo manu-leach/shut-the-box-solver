@@ -1,0 +1,1 @@
+g++ CombinationGenerator.cpp main.cpp -o test
