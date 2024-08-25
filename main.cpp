@@ -6,7 +6,7 @@ int main()
 {
     CombinationGenerator slay;
     
-    for (int i = 2; i <= 12; i ++)
+    for (int i = 1; i <= 12; i ++)
     {
         std::cout << " - - - - - TOTAL: " << i << " - - - - - " << std::endl;
         std::set<std::set<int>> combos = slay.genCombos(i);
