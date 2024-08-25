@@ -1,1 +1,1 @@
-g++ CombinationGenerator.cpp main.cpp -o test
+g++ CombinationGenerator.cpp StateGenerator.cpp main.cpp -o test

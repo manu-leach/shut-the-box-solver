@@ -1,10 +1,9 @@
 #include "CombinationGenerator.h"
 
-std::set<std::set<int>> CombinationGenerator::genCombos(const int& total)
+std::set<std::set<int>> CombinationGenerator::genCombos(const int& total, std::set<int> numbersUp)
 {
     std::set<std::set<int>> combos {};
     std::set<int> currentCombo {};
-    std::set<int> numbersUp {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     genCombosRecursive(combos, currentCombo, numbersUp, total);
 

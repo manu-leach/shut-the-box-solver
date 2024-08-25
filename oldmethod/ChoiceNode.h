@@ -13,6 +13,7 @@ public:
     ChoiceNode(const std::set<int>& choiceOfCombo) : Node(1, false), choiceOfCombo(choiceOfCombo) {}
 
     inline std::set<int> getChoiceOfCombo() {return choiceOfCombo;}
+    
 private:
     const std::set<int> choiceOfCombo;
 };
