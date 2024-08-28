@@ -11,8 +11,12 @@ class Edge
 public:
     Edge(Vertex* successor, const double& probability) : successor(successor), probability(probability) {}
 
+    Vertex* getSuccessor() const {return successor;}
+
+    double getProbability() const {return probability;}
+
 private:
-    const Vertex* successor;
+    Vertex* successor;
     const double probability;
 };
 

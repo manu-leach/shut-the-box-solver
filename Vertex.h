@@ -20,6 +20,12 @@ public:
 
     bool isFullyExplored() const {return fullyExplored;}
 
+    double getWinChance() const {return winChance;}
+
+    void setWinChance(const double& newWinChance) {winChance = newWinChance;}
+
+    void calcWinChance();
+
 private:
     const std::set<int> numbersUp;
     std::vector<Edge> edges;
