@@ -1,17 +1,18 @@
 #ifndef EDGE_H
 #define EDGE_H
 
-#include "GameState.h"
+#include "Vertex.h"
 
-class GameState;
+class Vertex;
 
+/// @brief Directed edge of the game graph. Stores the successor vertex and the probability of rolling the corresponding roll. To be stored by the predecessor vertex.
 class Edge
 {
 public:
-    Edge(GameState* successor, const double& probability) : successor(successor), probability(probability) {}
+    Edge(Vertex* successor, const double& probability) : successor(successor), probability(probability) {}
 
 private:
-    const GameState* successor;
+    const Vertex* successor;
     const double probability;
 };
 

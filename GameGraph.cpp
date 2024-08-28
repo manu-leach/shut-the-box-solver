@@ -6,19 +6,32 @@ GameGraph::GameGraph()
 
     for (const std::set<int> state : states)
     {
-        GameState newState(state);
-        gameStates.push_back(newState);
+        Vertex newVertex(state);
+        vertices.push_back(newVertex);
     }
 
-    for (GameState& gameState : gameStates)
+    for (Vertex& vertex : vertices)
     {
-        createEdges(gameState);
+        createEdges(vertex);
     }
 }
 
-void GameGraph::createEdges(GameState& gameState)
+bool GameGraph::checkExplored()
 {
-    std::set<int> numbersUp = gameState.getNumbersUp();
+    for (const Vertex& vertex : vertices)
+    {
+        if (!vertex.isFullyExplored())
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void GameGraph::createEdges(Vertex& vertex)
+{
+    std::set<int> numbersUp = vertex.getNumbersUp();
 
     for (int total = 2; total <= 12; total ++)
     {
@@ -34,20 +47,20 @@ void GameGraph::createEdges(GameState& gameState)
                 newNumbersUp.erase(num);
             }
 
-            GameState* successor = findGameState(newNumbersUp);
-            gameState.addEdge(successor, probability);
+            Vertex* successor = findVertex(newNumbersUp);
+            vertex.addEdge(successor, probability);
         }
     }
 
 }
 
-GameState* GameGraph::findGameState(const std::set<int>& numbersUp)
+Vertex* GameGraph::findVertex(const std::set<int>& numbersUp)
 {
-    for (GameState& gameState : gameStates)
+    for (Vertex& vertex : vertices)
     {
-        if (gameState.getNumbersUp() == numbersUp) 
+        if (vertex.getNumbersUp() == numbersUp) 
         {
-            return &gameState;
+            return &vertex;
         }
     }
 

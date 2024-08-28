@@ -1,1 +1,1 @@
-g++ CombinationGenerator.cpp GameGraph.cpp GameState.cpp StateGenerator.cpp main.cpp -o test
+g++ CombinationGenerator.cpp GameGraph.cpp StateGenerator.cpp Vertex.cpp main.cpp -o test
