@@ -4,11 +4,19 @@
 #include <iostream>
 #include <set>
 
-struct Utilities
+namespace Utilities
 {
-    static void printSet(std::set<int> set);
+    template <typename T>
+    void printSet(const std::set<T> set)
+    {
+        for (const T& element)
+        {
+            std::cout << element << ", ";
+        }
 
-};
+        std::cout << std::endl;
+    }
 
+}
 
 #endif

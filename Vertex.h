@@ -1,10 +1,12 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
+#include <iostream>
 #include <set>
 #include <vector>
 
 #include "Edge.h"
+#include "Utilities.h"
 
 class Vertex
 {
@@ -14,17 +16,22 @@ public:
 
     inline std::set<int> getNumbersUp() const {return numbersUp;}
 
+    inline int countEdges() const {return edges.size();}
+
+    inline bool isFullyExplored() const {return fullyExplored;}
+
+    inline double getWinChance() const {return winChance;}
+
+    inline void setWinChance(const double& newWinChance) {winChance = newWinChance;}
+
+    inline Vertex* getSuccessor(const int& index) {return edges[index].getSuccessor();}
+
     void addEdge(Vertex* successor, const double& probability);
 
-    int countEdges() const {return edges.size();}
-
-    bool isFullyExplored() const {return fullyExplored;}
-
-    double getWinChance() const {return winChance;}
-
-    void setWinChance(const double& newWinChance) {winChance = newWinChance;}
-
     void calcWinChance();
+
+    void printSuccessors() const;
+
 
 private:
     const std::set<int> numbersUp;

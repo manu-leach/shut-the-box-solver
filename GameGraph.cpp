@@ -27,7 +27,6 @@ bool GameGraph::checkExplored() const
     {
         if (!vertex.isFullyExplored())
         {
-            // Utilities::printSet(vertex.getNumbersUp());
             return false;
         }
     }
