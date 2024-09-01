@@ -9,15 +9,15 @@ class Vertex;
 class Edge
 {
 public:
-    Edge(Vertex* successor, const double& probability) : successor(successor), probability(probability) {}
+    Edge(Vertex* successor, const int& roll) : successor(successor), roll(roll) {}
 
     Vertex* getSuccessor() const {return successor;}
 
-    double getProbability() const {return probability;}
+    int getRoll() const {return roll;}
 
 private:
     Vertex* successor;
-    const double probability;
+    const int roll;
 };
 
 #endif

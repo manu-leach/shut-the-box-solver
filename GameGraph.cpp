@@ -52,8 +52,6 @@ void GameGraph::createEdges(Vertex& vertex)
 
     for (int total = 2; total <= 12; total ++)
     {
-        double probability = twoDiceProbabilities.at(total);
-
         std::set<std::set<int>> possibleRolls = CombinationGenerator::genCombos(total, numbersUp);
 
         for (const std::set<int>& roll : possibleRolls)
@@ -65,7 +63,7 @@ void GameGraph::createEdges(Vertex& vertex)
             }
 
             Vertex* successor = findVertex(newNumbersUp);
-            vertex.addEdge(successor, probability);
+            vertex.addEdge(successor, total);
         }
     }
 

@@ -1,8 +1,8 @@
 #include "Vertex.h"
 
-void Vertex::addEdge(Vertex* successor, const double& probability)
+void Vertex::addEdge(Vertex* successor, const int& roll)
 {
-    edges.push_back(Edge(successor, probability));
+    edges.push_back(Edge(successor, roll));
 }
 
 void Vertex::calcWinChance()
@@ -10,7 +10,9 @@ void Vertex::calcWinChance()
     for (Edge edge : edges)
     {
         Vertex* successor = edge.getSuccessor();
-        double probability = edge.getProbability();
+        
+        int roll = edge.getRoll();
+        double probability = Utilities::twoDiceProbabilities.at(roll);
 
         if (successor->isFullyExplored())
         {

@@ -2,14 +2,15 @@
 #define UTILITIES_H
 
 #include <iostream>
+#include <map>
 #include <set>
 
 namespace Utilities
 {
     template <typename T>
-    void printSet(const std::set<T> set)
+    void printSet(const std::set<T>& set)
     {
-        for (const T& element)
+        for (const T& element : set)
         {
             std::cout << element << ", ";
         }
@@ -17,6 +18,7 @@ namespace Utilities
         std::cout << std::endl;
     }
 
+    extern const std::map<int, double> twoDiceProbabilities;
 }
 
 #endif
