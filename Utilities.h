@@ -18,6 +18,7 @@ namespace Utilities
         std::cout << std::endl;
     }
 
+    extern const std::map<int, double> oneDieProbabilities;
     extern const std::map<int, double> twoDiceProbabilities;
 }
 

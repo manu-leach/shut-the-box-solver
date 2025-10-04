@@ -15,6 +15,10 @@ GameGraph::GameGraph()
     for (Vertex& vertex : vertices)
     {
         createEdges(vertex);
+        std::cout << "Edges created for vertex ";
+        Utilities::printSet(vertex.getNumbersUp());
+        vertex.printSuccessors();
+        assert(vertex.sumTwoDiceProbabilities() <= 1);
     }
 
     Vertex* win = findVertex({});
@@ -50,7 +54,17 @@ void GameGraph::createEdges(Vertex& vertex)
 {
     std::set<int> numbersUp = vertex.getNumbersUp();
 
-    for (int total = 2; total <= 12; total ++)
+    int minRoll;
+    if (vertex.canRollOneDie())
+    {
+        minRoll = 1;
+    }
+    else
+    {
+        minRoll = 2;
+    }
+
+    for (int total = minRoll; total <= 12; total ++)
     {
         std::set<std::set<int>> possibleRolls = CombinationGenerator::genCombos(total, numbersUp);
 

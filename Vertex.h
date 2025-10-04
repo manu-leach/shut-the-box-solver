@@ -36,12 +36,19 @@ public:
 
     void printSuccessors() const;
 
+    double sumTwoDiceProbabilities() const;
+
+    void printEdges() const;
+
 private:
     const std::set<int> numbersUp;
     std::vector<Edge> edges;
     bool fullyExplored;
     double winChance;
     bool rollOneDie;
+
+    double calcWinChance(const int& minRoll, const int& maxRoll, const std::map<int, double>& probabilityMap);
+
 };
 
 #endif
